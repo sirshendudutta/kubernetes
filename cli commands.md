@@ -94,3 +94,7 @@ kubectl top The kubectl top command returns current CPU and memory usage for a c
 
 ## Sort secrets by name and save in a file sorted-secrets.txt
 - kubectl get secrets --sort-by=metadata.name
+---
+## Yaml file option check commands
+- kubectl explain pods --recursive |less
+
