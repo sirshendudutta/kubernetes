@@ -24,6 +24,15 @@
 - kubectl get deployment
 - kubectl get replicaset
 - kubectl edit deployment nginx-depl
+## Replication Controller
+- kubectl create -f replica.yaml
+- kubectl get rc
+- kubectl replace -f replicat.yml (** To update the replicaset in future)
+- kubectl scale --replica=6 -f replica.yaml
+- kubectl delete replicaset replica.yaml
+## Deployment
+- kubectl get all
+- 
 
 ## debugging
 - kubectl logs {pod-name}
