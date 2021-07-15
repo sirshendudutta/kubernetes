@@ -1,3 +1,6 @@
+## Important Commands:
+- kubectl run redis --image=redis --dry-run=client -o yaml > pod.yaml ( ** To create yaml file automatically)
+
 ## install hyperhit and minikube
 - brew update
 - brew install hyperkit
@@ -32,6 +35,10 @@
 - kubectl delete replicaset replica.yaml
 ## Deployment
 - kubectl get all
+## Namespaces
+- kubectl create -f namespaces.yml --namespace=dev (** To crete Manually)
+- kubectl create namespace dev
+- kubectl config set-context $(kubectl config current-context) --namespace=dev
 - 
 
 ## debugging
