@@ -39,7 +39,9 @@
 - kubectl create -f namespaces.yml --namespace=dev (** To crete Manually)
 - kubectl create namespace dev
 - kubectl config set-context $(kubectl config current-context) --namespace=dev
-- 
+## Secrets
+- kubectl get secrets
+- kubectl describe secrets
 
 ## debugging
 - kubectl logs {pod-name}
