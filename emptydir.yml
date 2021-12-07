@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myvolumeemptydir
+spec:
+  containers:
+  - name: c12
+    image: nginx
+    volumeMounts:
+      - name: xchange
+        mountPath: "/tmp/xchange"
+  - name: c14
+    image: nginx
+    volumeMounts:
+      - name: xchange
+        mountPath: "/tmp/data"
+  volumes:
+  - name: xchange
+    emptyDir: {}
+
