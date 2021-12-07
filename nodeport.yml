@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: seconddeployments
+spec:
+   replicas: 1
+   selector:
+     matchLabels: 
+       name: env
+   template:
+     metadata:
+        name: testpod2
+        labels:
+          name: env 
+     spec:
+       containers:
+         - name: e00
+           image: httpd
+           ports:
+           - containerPort: 8080     
