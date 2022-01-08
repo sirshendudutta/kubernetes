@@ -1,0 +1,48 @@
+FOR MASTER NODE:
+apt-cache madison kubeadm | grep 1.22
+  394  kubectl get nodes
+  395  sudo apt update
+  396  apt-cache madison kubeadm | grep 1.22
+  397  apt-mark unhold kubeadm
+  398  apt-get update && apt-get install -y kubeadm=1.22.1-00
+  399  apt-mark hold kubeadm
+  400  kubeadm version
+  401  kubeadm upgrade plan
+  402  sudo kubeadm upgrade apply v1.22.1
+  403  kubectl get nodes
+  404  kubectl drain master --ignore-daemonsets
+  405  kubectl get nodes
+  406  apt-mark unhold kubelet kubectl
+  407  apt-get update && apt-get install -y kubelet=1.22.1-00 kubectl=1.22.1-00
+  408  kubectl version
+  409  kubectl get nodes
+  410  apt-mark hold kubelet kubectl
+  411  systemctl daemon-reload
+  412  systemctl restart kubelet
+  413  kubectl uncordon master
+  
+FOR WORKER NODES: ( FROM WORKER-1): 
+--------------------------
+apt-mark unhold kubeadm
+   35  apt-get update && apt-get install -y kubeadm=1.22.1-00
+   36  apt-mark hold kubeadm
+   37  kubeadm upgrade node
+   -----------------------------------------
+   **** GO TO THE MASTER NODE RUN :
+   kubectl drain worker-1 --ignore-daemonsets
+   kubectl get nodes
+   ---------------------------------------------
+   38  apt-mark unhold kubelet kubectl
+   39  apt-get update && apt-get install -y kubelet=1.22.1-00 kubectl=1.22.1-00
+   40  apt-mark hold kubelet kubectl
+   41  systemctl daemon-reload
+   42  systemctl restart kubelet
+   43  systemctl status kubelet
+  ----------------------------------------------------
+   **** GO TO THE MASTER NODE RUN :
+   kubectl uncordon worker-1
+   kubectl get nodes
+ -----------------------------------------------------------
+
+   
+   
